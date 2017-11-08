@@ -19,7 +19,6 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
 
 	// Insert new doc into Users (name, age, location)
 	db.collection('Users').insertOne({
-		_id: 123,
 		name: 'Andrew',
 		age: 25,
 		location: 'Philadelphia'
@@ -28,7 +27,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
 			return console.log('Unable to insert user', err);
 		}
 
-		console.log(result.ops);
+		console.log(result.ops[0]._id);
 	});
 
 	db.close();
