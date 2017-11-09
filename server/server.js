@@ -7,7 +7,8 @@ var Todo = mongoose.model('Todo', {
 	text: {
 		type: String,
 		required: true,
-		minlength: 1
+		minlength: 1,
+		trim: true
 	},
 	completed: {
 		type: Boolean
@@ -28,7 +29,7 @@ var Todo = mongoose.model('Todo', {
 // });
 
 var otherTodo = new Todo({
-	text: ''
+	text: '    '
 });
 
 otherTodo.save().then((doc) => {
