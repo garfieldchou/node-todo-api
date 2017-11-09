@@ -29,7 +29,7 @@ var Todo = mongoose.model('Todo', {
 // });
 
 var otherTodo = new Todo({
-	text: '    '
+	text: '   Edit this video  '
 });
 
 otherTodo.save().then((doc) => {
