@@ -2,12 +2,13 @@ const {ObjectID} = require('mongodb');
 
 const {mongoose} = require('./../server/db/mongoose');
 const {Todo} = require('./../server/models/todo');
+const {User} = require('./../server/models/user');
 
-var id = '5a08ebd99cd66c98189f25a911';
+// var id = '5a08ebd99cd66c98189f25a911';
 
-if(!ObjectID.isValid(id)) {
-	console.log('ID not valid');
-}
+// if(!ObjectID.isValid(id)) {
+// 	console.log('ID not valid');
+// }
 
 // Todo.find({
 //     _id: id
@@ -21,9 +22,19 @@ if(!ObjectID.isValid(id)) {
 //     console.log('Todo', todo);
 // });
 
-Todo.findById(id).then((todo) => {
-	if(!todo) {
-		return console.log('Id not found');
+// Todo.findById(id).then((todo) => {
+// 	if(!todo) {
+// 		return console.log('Id not found');
+// 	}
+//     console.log('Todo By Id', todo);
+// }).catch((e) => console.log(e));
+
+User.findById('5a03c3c339f6a67021e940d6').then((user) => {
+	if(!user) {
+		return console.log('Unable to find user');
 	}
-    console.log('Todo By Id', todo);
-}).catch((e) => console.log(e));
+
+	console.log(JSON.stringify(user, undefined, 2));
+}, (e) => {
+	console.log(e);
+});
