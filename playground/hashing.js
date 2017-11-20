@@ -8,6 +8,9 @@ var data = {
 var token = jwt.sign(data, '123abc'); 
 console.log(token);
 
+var decoded = jwt.verify(token, '123abc');
+console.log('decoded', decoded);
+
 // var message = 'I am user number 3';
 // var hash = SHA256(message).toString();
 
