@@ -4,10 +4,15 @@ const bcrypt = require('bcryptjs');
 
 var password = '123abc!';
 
-bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(password, salt, (err, hash) => {
-        console.log(hash);
-    });
+// bcrypt.genSalt(10, (err, salt) => {
+//     bcrypt.hash(password, salt, (err, hash) => {
+//         console.log(hash);
+//     });
+// });
+
+var hashedPassword = '$2a$10$P4CnK..XkiyrgqR6F3PscO4p3KCvoqQyAsNfbFELaI/IUTZzA9072';
+bcrypt.compare(password, hashedPassword, (err, res) => {
+    console.log(res);
 });
 
 // var data = {
