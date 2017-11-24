@@ -235,7 +235,14 @@ describe('POST /users', () => {
 	});
 
 	it('should not create user if email in use', (done) => {
-
+		request(app)
+			.post('/users')
+			.send({
+				email: users[0].email,
+				password: 'Password123!'
+			})
+			.expect(400)
+			.end(done);
 	});
 });
 
