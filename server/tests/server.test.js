@@ -171,7 +171,15 @@ describe('PATCH /todos/:id', () => {
 	});
 });
 
+describe('GET /users/me', () => {
+	it('should return user if authenticated', (done) => {
 
+	});
+
+	it('should return 401 if not authenticated', (done) => {
+
+	});
+});
 
 
 
