@@ -195,7 +195,19 @@ describe('GET /users/me', () => {
 	});
 });
 
+describe('POST /users', () => {
+	it('should create a user', (done) => {
 
+	});
+
+	it('should return validation errors if request invalid', (done) => {
+
+	});
+
+	it('should not create user if email in use', (done) => {
+
+	});
+});
 
 
 
