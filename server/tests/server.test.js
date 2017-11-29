@@ -72,6 +72,7 @@ describe('GET /todos/:id', () => {
 	it('should return todo doc', (done) => {
 		request(app)
 			.get(`/todos/${todos[0]._id.toHexString()}`)
+			.set('x-auth', users[0].tokens[0].token)
 			.expect(200)
 			.expect((res) => {
 				expect(res.body.todo.text).toBe(todos[0].text);
@@ -84,6 +85,7 @@ describe('GET /todos/:id', () => {
 
 		request(app)
 			.get(`/todos/${hexId}`)
+			.set('x-auth', users[0].tokens[0].token)
 			.expect(404)
 			.end(done);
 	});
@@ -91,6 +93,7 @@ describe('GET /todos/:id', () => {
 	it('should return 404 for non-object ids', (done)=> {
 		request(app)
 			.get(`/todos/123abc`)
+			.set('x-auth', users[0].tokens[0].token)
 			.expect(404)
 			.end(done);
 	});
